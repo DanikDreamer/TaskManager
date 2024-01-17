@@ -3,5 +3,5 @@ FactoryBot.define do
     "string#{n}"
   end
   sequence(:email) { |n| "person#{n}@example.com" }
-  sequence(:expired_at) { |n| (Time.now + n.day).to_date }
+  sequence(:expired_at) { |n| Date.current + n.day }
 end
