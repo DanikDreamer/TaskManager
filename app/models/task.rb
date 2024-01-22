@@ -7,10 +7,10 @@ class Task < ApplicationRecord
   validates :author, presence: true
 
   state_machine initial: :new_task do
-    event :start_development do
-      transition new_task: :in_development
+    event :develop do
+      transition [:new_task, :in_qa, :in_code_review] => :in_development
     end
-
+    
     event :start_testing do
       transition in_development: :in_qa
     end
@@ -25,10 +25,6 @@ class Task < ApplicationRecord
 
     event :release do
       transition ready_for_release: :released
-    end
-
-    event :continue_development do
-      transition [:in_qa, :in_code_review] => :in_development
     end
 
     event :archive do
