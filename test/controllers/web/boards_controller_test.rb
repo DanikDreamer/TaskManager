@@ -5,7 +5,7 @@ class Web::BoardsControllerTest < ActionController::TestCase
     user = create(:user)
     sign_in user
   end
-  
+
   test 'should get show' do
     get :show
     assert_response :success
