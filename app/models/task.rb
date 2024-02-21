@@ -6,7 +6,7 @@ class Task < ApplicationRecord
   STATE_READY_FOR_RELEASE = 'ready_for_release'
   STATE_RELEASED = 'released'
   STATE_ARCHIVED = 'archived'
-  
+
   belongs_to :author, class_name: 'User'
   belongs_to :assignee, class_name: 'User', optional: true
 
